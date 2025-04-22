@@ -9,6 +9,7 @@ public class SpaceShipMovement : MonoBehaviour
     {
         GetTargetPos();
         ResetZAxis();
+        LootAtTarget();
         Move();
     }
 
@@ -26,5 +27,13 @@ public class SpaceShipMovement : MonoBehaviour
     {
         Vector3 moveVec = Vector3.Lerp(transform.parent.position, targetPos, shipSpeed * Time.deltaTime);
         transform.parent.position = moveVec;
+    }
+
+    private void LootAtTarget()
+    {
+        Vector3 diff = this.targetPos - transform.parent.position;
+        diff.Normalize();
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
     }
 }
