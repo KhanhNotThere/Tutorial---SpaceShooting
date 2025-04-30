@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BulletMovement : ObjectMovement
+public class AsterMovement : ObjectMovement
 {
     protected override void ResetValue()
     {
         base.ResetValue();
-        objectSpeed = 10f;
+        objectSpeed = 1f;
     }
 }
