@@ -27,9 +27,8 @@ public class JunkRandom : KhanhBeharvier
 
     private void JunkSpawn()
     {
-        Vector3 junkPos = transform.position;
-        Quaternion junkRotation = transform.rotation;
-        Transform obj =  junkCtrl.JunkSpawner.Spawn(JunkSpawner.Instance.asterOne, junkPos, junkRotation);
+        Transform RandPoint = junkCtrl.JunkSpawnPoints.GetRandomPoint();
+        Transform obj =  junkCtrl.JunkSpawner.Spawn(JunkSpawner.Instance.asterOne, RandPoint.position, RandPoint.rotation);
         obj.gameObject.SetActive(true);
         Invoke(nameof(JunkSpawn), 1f);
     }
