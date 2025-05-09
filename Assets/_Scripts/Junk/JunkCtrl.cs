@@ -2,37 +2,21 @@ using UnityEngine;
 
 public class JunkCtrl : KhanhBeharvier
 {
-    [SerializeField] private JunkSpawner junkSpawner;
-    public JunkSpawner JunkSpawner { get { return junkSpawner; } }
-    [SerializeField] private JunkSpawnPoints junkSpawnPoints;
-    public JunkSpawnPoints JunkSpawnPoints {  get { return junkSpawnPoints; } }
-
+    [SerializeField] protected Transform junkModel;
+    public Transform JunkModel { get { return junkModel; } }
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadJunkSpawner();
-        LoadJunkSpawnPoints();
+        LoadModel();
     }
 
-    private void LoadJunkSpawner()
+    private void LoadModel()
     {
-        if (junkSpawner != null)
+        if (junkModel != null)
         {
             return;
         }
 
-        junkSpawner = GetComponent<JunkSpawner>();
-        Debug.Log("JunkSpawn: " +  junkSpawner);
-    }
-
-    private void LoadJunkSpawnPoints()
-    {
-        if (junkSpawnPoints != null)
-        {
-            return;
-        }
-
-        junkSpawnPoints = Transform.FindObjectOfType<JunkSpawnPoints>();
-        Debug.Log("JunkSpawnPoint: " +  junkSpawnPoints);
+        junkModel = transform.Find("AsterModel");
     }
 }

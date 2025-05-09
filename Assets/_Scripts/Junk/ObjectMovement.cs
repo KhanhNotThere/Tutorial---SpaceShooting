@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectMovement : KhanhBeharvier
 {
-    private Vector3 objectDir = Vector3.down;
+    private Vector3 objectDir = Vector3.right;
     protected float objectSpeed = 10f;
 
     void Update()

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class KhanhBeharvier : MonoBehaviour
@@ -19,7 +20,22 @@ public abstract class KhanhBeharvier : MonoBehaviour
 
     }
 
+    protected virtual void Start()
+    {
+
+    }
+
     protected virtual void ResetValue()
+    {
+
+    }
+
+    protected virtual void OnEnable()
+    {
+
+    }
+
+    protected virtual void OnDisable ()
     {
 
     }

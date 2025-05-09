@@ -2,33 +2,34 @@ using UnityEngine;
 
 public class JunkRandom : KhanhBeharvier
 {
-    [SerializeField] private JunkCtrl junkCtrl;
+    [SerializeField] private JunkSpawnerCtrl junkSpawnerCtrl;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadJunkCtrl();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         JunkSpawn();
     }
 
     protected void LoadJunkCtrl()
     {
-        if (junkCtrl != null)
+        if (junkSpawnerCtrl != null)
         {
             return;
         }
 
-        junkCtrl = GetComponent<JunkCtrl>();
-        Debug.Log("Junk Controler: " + junkCtrl);
+        junkSpawnerCtrl = GetComponent<JunkSpawnerCtrl>();
+        Debug.Log("Junk Controler: " + junkSpawnerCtrl);
     }
 
     private void JunkSpawn()
     {
-        Transform RandPoint = junkCtrl.JunkSpawnPoints.GetRandomPoint();
-        Transform obj =  junkCtrl.JunkSpawner.Spawn(JunkSpawner.Instance.asterOne, RandPoint.position, RandPoint.rotation);
+        Transform RandPoint = junkSpawnerCtrl.JunkSpawnPoints.GetRandomPoint();
+        Transform obj = junkSpawnerCtrl.JunkSpawner.Spawn(JunkSpawner.Instance.asterOne, RandPoint.position, RandPoint.rotation);
         obj.gameObject.SetActive(true);
         Invoke(nameof(JunkSpawn), 1f);
     }
