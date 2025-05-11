@@ -7,6 +7,8 @@ public abstract class Spawner : KhanhBeharvier
     [SerializeField] private Transform holderTran;
     [SerializeField] private List<Transform> poolObj;
 
+    [SerializeField] private int spawnCounter = 0;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -57,6 +59,7 @@ public abstract class Spawner : KhanhBeharvier
 
         Transform newPrefap = GetObjectFromPool(prefap);
         newPrefap.SetPositionAndRotation(spawnPos, spawnRotation);
+        spawnCounter++;
         newPrefap.parent = holderTran;
 
         return newPrefap;
@@ -94,6 +97,7 @@ public abstract class Spawner : KhanhBeharvier
     public void Despawn(Transform transform)
     {
         poolObj.Add(transform);
+        spawnCounter--;
         transform.gameObject.SetActive(false);
     }
 }

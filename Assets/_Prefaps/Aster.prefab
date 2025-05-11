@@ -56,8 +56,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1329903257756385086}
-  - component: {fileID: 1038000238298753454}
-  - component: {fileID: 1157715246523271929}
+  - component: {fileID: 3072695843596452728}
+  - component: {fileID: 8102217453217110479}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: Untagged
@@ -80,30 +80,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6927341098352033019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1038000238298753454
-MonoBehaviour:
+--- !u!135 &3072695843596452728
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617660649710284650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8416a6083d3b50446bcd09539b17c280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 1
-  hpMax: 10
---- !u!58 &1157715246523271929
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617660649710284650}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -112,24 +95,29 @@ CircleCollider2D:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8102217453217110479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617660649710284650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79795931d66b82940ba0b22a07c276c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 3072695843596452728}
+  hp: 1
+  hpMax: 1
+  isDead: 0
+  junkCtrl: {fileID: 6928895064799877855}
 --- !u!1 &2399688461266976625
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   junkModel: {fileID: 8177230343001764271}
+  asterDespawn: {fileID: 4291335600043998157}
 --- !u!1 &3985948771765990483
 GameObject:
   m_ObjectHideFlags: 0

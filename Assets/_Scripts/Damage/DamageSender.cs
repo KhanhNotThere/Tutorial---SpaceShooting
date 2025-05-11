@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DamageSender : KhanhBeharvier
 {
-    [SerializeField] private float damage = 1f;
+    [SerializeField] private int damage = 1;
 
     public void Send(Transform transform)
     {
@@ -16,15 +16,9 @@ public class DamageSender : KhanhBeharvier
         Send(damageReceiver);
     }
 
-    public void Send(DamageReceiver damageReceiver)
+    public virtual void Send(DamageReceiver damageReceiver)
     {
         damageReceiver.Deduct(damage);
         Debug.Log("Take:" + damage + " damage.");   
-        DestroyObj();
-    }
-
-    private void DestroyObj()
-    {
-        Destroy(transform.parent.gameObject);
     }
 }

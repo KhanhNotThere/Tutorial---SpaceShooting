@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JunkRandom : KhanhBeharvier
+public class JunkSpawnerRandom : KhanhBeharvier
 {
     [SerializeField] private JunkSpawnerCtrl junkSpawnerCtrl;
     protected override void LoadComponents()
